@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "appServiceName": {
-      "value": ""
+      "value": "my-chk-bot-new"
     },
     "existingAppServicePlanName": {
       "value": ""
@@ -30,10 +30,10 @@
       "value": "MultiTenant"
     },
     "appId": {
-      "value": ""
+      "value": "b097a88a-9c49-43d2-bb8b-922ab1f981f9"
     },
     "appSecret": {
-      "value": ""
+      "value": "ragu"
     },
     "UMSIName": {
       "value": ""
