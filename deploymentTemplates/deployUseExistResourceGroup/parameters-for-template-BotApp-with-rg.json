@@ -6,13 +6,13 @@
       "value": "my-chk-bot-new"
     },
     "existingAppServicePlanName": {
-      "value": ""
+      "value": "Free Trial"
     },
     "existingAppServicePlanLocation": {
       "value": ""
     },
     "newAppServicePlanName": {
-      "value": ""
+      "value": "ASP-mybot-8764"
     },
     "newAppServicePlanLocation": {
       "value": ""
@@ -33,7 +33,7 @@
       "value": "b097a88a-9c49-43d2-bb8b-922ab1f981f9"
     },
     "appSecret": {
-      "value": "ragu"
+      "value": ""
     },
     "UMSIName": {
       "value": ""
@@ -42,7 +42,7 @@
       "value": ""
     },
     "tenantId": {
-      "value": ""
+      "value": "b4406657-d342-4616-9712-bf67b34d30ae"
     }
   }
 }

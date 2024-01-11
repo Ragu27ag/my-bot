@@ -3,19 +3,19 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "groupName": {
-      "value": ""
+      "value": "newRes"
     },
     "groupLocation": {
       "value": ""
     },
     "appServiceName": {
-      "value": ""
+      "value": "test-chk-bot"
     },
     "appServicePlanName": {
-      "value": ""
+      "value": "Free Trial"
     },
     "appServicePlanLocation": {
-      "value": ""
+      "value": "East US"
     },
     "appServicePlanSku": {
       "value": {
@@ -30,7 +30,7 @@
       "value": "MultiTenant"
     },
     "appId": {
-      "value": ""
+      "value": "a5b4d1c4-5ef4-4804-b5c6-80ecf9756cd4"
     },
     "appSecret": {
       "value": ""
@@ -42,7 +42,7 @@
       "value": ""
     },
     "tenantId": {
-      "value": ""
+      "value": "b4406657-d342-4616-9712-bf67b34d30ae"
     }
   }
 }
