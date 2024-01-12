@@ -1,6 +1,7 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
+const { default: axios } = require('axios');
 const { ActivityHandler, MessageFactory } = require('botbuilder');
 
 class EchoBot extends ActivityHandler {
@@ -8,11 +9,21 @@ class EchoBot extends ActivityHandler {
         super();
         // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
         this.onMessage(async (context, next) => {
-            console.log('con', context);
-            const replyText = 'Echo: hi';
-            await context.sendActivity(MessageFactory.text(replyText, replyText));
-            // By calling next() you ensure that the next BotHandler is run.
-            await next();
+            // console.log('con', context.activity.text);
+            const numberPattern = /^\d+(\.\d+)?$/;
+            if (numberPattern.test(context.activity.text)) {
+                const val = await data(context.activity.text);
+                console.log(val.title);
+                const replyText = `Title : ${ val.title } | Price : ${ val.price } `;
+                await context.sendActivity(MessageFactory.text(replyText, replyText));
+                // By calling next() you ensure that the next BotHandler is run.
+                await next();
+            } else {
+                const replyText = 'Only positive numbers are allowed';
+                await context.sendActivity(MessageFactory.text(replyText, replyText));
+                // By calling next() you ensure that the next BotHandler is run.
+                await next();
+            }
         });
 
         this.onMembersAdded(async (context, next) => {
@@ -26,6 +37,11 @@ class EchoBot extends ActivityHandler {
             // By calling next() you ensure that the next BotHandler is run.
             await next();
         });
+        async function data(no) {
+            const val = await axios.get(`https://fakestoreapi.com/products/${ no }`);
+            // console.log('val', val.data);
+            return val.data;
+        }
     }
 }
 
