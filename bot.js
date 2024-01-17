@@ -14,7 +14,7 @@ class EchoBot extends ActivityHandler {
             if (numberPattern.test(context.activity.text)) {
                 const val = await data(context.activity.text);
                 console.log(val.title);
-                const replyText = `Title : ${ val.title } | Price : ${ val.price } `;
+                const replyText = `Name : ${ val.title } | Sal : ${ val.price } `;
                 await context.sendActivity(MessageFactory.text(replyText, replyText));
                 // By calling next() you ensure that the next BotHandler is run.
                 await next();
@@ -38,7 +38,7 @@ class EchoBot extends ActivityHandler {
             await next();
         });
         async function data(no) {
-            const val = await axios.get(`https://fakestoreapi.com/products/${ no }`);
+            const val = await axios.get(`https://dummy.restapiexample.com/api/v1/employee/${ no }`);
             // console.log('val', val.data);
             return val.data;
         }
