@@ -9,7 +9,7 @@ class EchoBot extends ActivityHandler {
         super();
         // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
         this.onMessage(async (context, next) => {
-            // console.log('con', context.activity.text);
+            console.log('con', context.activity.text);
             const numberPattern = /^\d+(\.\d+)?$/;
             if (numberPattern.test(context.activity.text)) {
                 const val = await data(context.activity.text);
