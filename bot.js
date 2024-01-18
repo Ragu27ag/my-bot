@@ -9,13 +9,19 @@ class EchoBot extends ActivityHandler {
         super();
         // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
         this.onMessage(async (context, next) => {
-            // console.log('con', context.activity.text);
+            console.log('con', context);
             const numberPattern = /^\d+(\.\d+)?$/;
             if (numberPattern.test(context.activity.text)) {
                 const val = await data(context.activity.text);
-                console.log(val.title);
-                const replyText = `Name : ${ val.title } | Sal : ${ val.price } `;
+                // console.log(val.data.employee_name);
+                const replyText = `Name : ${ val?.data?.employee_name || '' } | Sal : ${ val?.data?.employee_salary || '' } `;
                 await context.sendActivity(MessageFactory.text(replyText, replyText));
+                // By calling next() you ensure that the next BotHandler is run.
+                await next();
+            } else if (numberPattern.test(context.activity.text.slice(11).trim())) {
+                const val = await data(context.activity.text.slice(11).trim());
+                // console.log(val.title);
+                const replyText = `Name : ${ val?.data?.employee_name || '-' } | Sal : ${ val?.data?.employee_salary || '-' } `; await context.sendActivity(MessageFactory.text(replyText, replyText));
                 // By calling next() you ensure that the next BotHandler is run.
                 await next();
             } else {
